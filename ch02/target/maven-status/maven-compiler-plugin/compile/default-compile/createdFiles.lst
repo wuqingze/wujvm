@@ -1,0 +1,8 @@
+com/github/jvmgo/Main.class
+com/github/jvmgo/classpath/Classpath.class
+com/github/jvmgo/Args.class
+com/github/jvmgo/classpath/Entry.class
+com/github/jvmgo/classpath/DirEntry.class
+com/github/jvmgo/classpath/ZipEntry.class
+com/github/jvmgo/classpath/CompositeEntry.class
+com/github/jvmgo/classpath/WildcardEntry.class
