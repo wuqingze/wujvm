@@ -1,2 +1,0 @@
-p=~/.m2/repository/
-mvn dependency:resolve | grep :jar | awk '{split($2,a,":"); gsub("\\.","/",a[1]);print a[1],a[2],a[4]}' | awk '{print $1"/"$2"/"$3"/"$2"-"$3".jar"}'
