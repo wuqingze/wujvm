@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.github.jvmgo.classFile.ClassReaderTest" time="0.015" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.github.jvmgo.classfile.ClassReaderTest" time="0.011" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/opt/java/jdk1.8.0_141/jre/lib/amd64"/>
@@ -13,7 +13,7 @@
     <property name="file.encoding.pkg" value="sun.io"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="com.github.jvmgo.classFile.ClassReaderTest#test04"/>
+    <property name="test" value="com.github.jvmgo.classfile.ClassReaderTest#test08"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/mnt/c/Users/surface/Documents/jvm/wujvm/ch03"/>
     <property name="java.runtime.version" value="1.8.0_141-b15"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/opt/java/jdk1.8.0_141/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=com.github.jvmgo.classFile.ClassReaderTest#test04"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -Dtest=com.github.jvmgo.classfile.ClassReaderTest#test08"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -61,5 +61,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.github.jvmgo.classFile.ClassReaderTest" name="test04" time="0.015"/>
+  <testcase classname="com.github.jvmgo.classfile.ClassReaderTest" name="test08" time="0.011"/>
 </testsuite>

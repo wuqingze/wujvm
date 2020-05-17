@@ -1,15 +1,18 @@
-package com.github.jvmgo.classFile;
+package com.github.jvmgo.classfile;
 
 import org.junit.Test;
 import org.junit.Before;
 import java.io.File;
 import java.util.Arrays;
+import java.io.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import com.github.jvmgo.classfile.ClassReader;
+import com.github.jvmgo.classpath.Classpath;
+
 
 public class ClassReaderTest{
 
@@ -65,5 +68,31 @@ public class ClassReaderTest{
 	classReader.back(4);
 	System.out.println(Arrays.toString(classReader.nextBytes(4)));
 	classReader.back(4);
+    }
+
+    @Test
+    public void test05(){
+	classReader = new ClassReader(new byte[]{0x01,0x00,0x00,0x7b});
+	System.out.println(classReader.nextU4ToHexString());
+    }
+
+    @Test
+    public void test06(){
+	classReader = new ClassReader(new byte[]{0x00,0x01,0x00,0x7b});
+	System.out.println(Arrays.toString(classReader.nextUint16s()));
+    }
+
+    @Test
+    public void test07() throws Exception{
+	Classpath cp = new Classpath(null, null);
+	byte[] d = cp.readClass("java/lang/Object");
+	FileOutputStream out = new FileOutputStream(new File("Object.class"));
+	out.write(d);
+	out.close();
+	System.out.println(Arrays.toString(d));
+    }
+    @Test
+    public void test08(){
+	System.out.println("hello world--------------------------------test08");
     }
 }
