@@ -5,6 +5,7 @@ import org.junit.Before;
 import java.io.File;
 import java.util.Arrays;
 import java.io.*;
+import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -94,5 +95,26 @@ public class ClassReaderTest{
     @Test
     public void test08(){
 	System.out.println("hello world--------------------------------test08");
+    }
+
+    /**
+     * 将String字节码读取到String.java文件中，便于classpy工具和其他类进行比较分析
+     */
+    @Test
+    public void test09() throws Exception{
+	Classpath cp = new Classpath(null, null);
+	byte[] d = cp.readClass("java/lang/String");
+	FileOutputStream out = new FileOutputStream(new File("String.class"));
+	out.write(d);
+	out.close();
+	System.out.println(Arrays.toString(d));
+    }
+    
+    @Test
+    public void test10() throws Exception{
+	Scanner in = new Scanner(System.in);
+	while(in.hasNextLine()){
+	    System.out.println(in.nextLine());
+	}
     }
 }

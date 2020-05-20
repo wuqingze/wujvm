@@ -1,0 +1,13 @@
+package com.github.jvmgo.reflect;
+
+import junit.framework.Test;
+
+public class CustomerClassLoaderTest{
+
+
+    @Test
+    public void test00(){
+	System.out.println("hello world");
+    }
+
+}
