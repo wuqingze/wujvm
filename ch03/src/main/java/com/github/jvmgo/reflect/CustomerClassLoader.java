@@ -44,4 +44,20 @@ public class CustomerClassLoader extends ClassLoader{
 	System.out.println(arg+i);
     }
 
+    public void testString(Integer i){
+	System.out.println("-------teststring string integer");
+	System.out.println(i);
+    }
+
+    public void testString(int i){
+	System.out.println("-------teststring string integer");
+	System.out.println(i);
+	System.out.println("-------teststring string integer=======");
+    }
+
+    public void testString(double i){
+	System.out.println("-------teststring string double");
+	System.out.println(i);
+	System.out.println("-------teststring string double=======");
+    }
 }

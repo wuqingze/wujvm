@@ -5,7 +5,7 @@ import com.github.jvmgo.classfile.MemberInfo;
 import com.github.jvmgo.classfile.constantpool.ConstantInfo;
 import com.github.jvmgo.classfile.constantpool.ConstantPool;
 import com.github.jvmgo.classpath.Classpath;
-
+import java.util.*;
 public class Main {
 
 
@@ -18,7 +18,10 @@ public class Main {
         } else if (args.versionFlag) {
             System.out.println("java version \"1.8.0\"");
         } else {
-            startJVM(args);
+	    System.out.println(Arrays.toString(argv));
+	    System.out.println(args.classpath);
+	    System.out.println(args.mainClassAndArgs);
+        //    startJVM(args);
         }
     }
 

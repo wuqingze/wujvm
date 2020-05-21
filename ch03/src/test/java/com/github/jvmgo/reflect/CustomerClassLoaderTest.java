@@ -125,4 +125,50 @@ public class CustomerClassLoaderTest{
 	System.out.println(new String("asdkjfa"));
 	System.out.println(new Double("3.14"));
     } 
+
+    @Test
+    public void test13() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Class[] args = new Class[1];
+	//args[0] = java.lang.Integer.class; 
+	args[0] = int.class; 
+	Method m = c.getDeclaredMethod("testString",args); 
+	m.setAccessible(true);
+	m.invoke(c.newInstance(),111);
+    }
+
+    @Test
+    public void test14() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Class[] args = new Class[1];
+	//args[0] = java.lang.Integer.class; 
+	args[0] = double.class; 
+	Method m = c.getDeclaredMethod("testString",args); 
+	m.setAccessible(true);
+	m.invoke(c.newInstance(),111);
+    }
+
+    @Test
+    public void test15() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Class[] args = new Class[2];
+	args[0] = java.lang.String.class;
+	args[1] = java.lang.Double.class;
+	Method m = c.getDeclaredMethod("testString",args); 
+	m.setAccessible(true);
+	Object[] o = new Object[2];
+	o[0] = "test15";
+	o[1] = 15.0;
+	m.invoke(c.newInstance(), o);
+    }
+
+    @Test
+    public void test16() throws Exception{
+	int a = Integer.parseInt("12");
+	double b = Double.parseDouble("12.11");
+	boolean c = Boolean.parseBoolean("true");
+	System.out.println(a);
+	System.out.println(b);
+	System.out.println(c);
+    }
 }
