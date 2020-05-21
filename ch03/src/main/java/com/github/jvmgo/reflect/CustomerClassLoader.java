@@ -23,4 +23,24 @@ public class CustomerClassLoader extends ClassLoader{
 	}
 	return null;
     }
+
+    public void testString(String arg){
+	System.out.println("-------teststring");
+	System.out.println(arg);
+    }
+
+    public void testString(String arg, Integer i){
+	System.out.println("-------teststring string integer");
+	System.out.println(arg+i);
+    }
+
+    public void testString(String arg, float i){
+	System.out.println("-------teststring string float");
+	System.out.println(arg+i);
+    }
+
+    public void testString(String arg, Double i){
+	System.out.println("-------teststring string double");
+	System.out.println(arg+i);
+    }
 }

@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.Scanner;
 import com.github.jvmgo.reflect.CustomerClassLoader;
 import java.io.File;
+import java.lang.reflect.*;
 
 public class CustomerClassLoaderTest{
 
@@ -56,4 +57,72 @@ public class CustomerClassLoaderTest{
 	System.out.println(c);
     }
 
+    @Test
+    public void test06() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Method m = c.getDeclaredMethod("testString", new Class[] {java.lang.String.class});
+	//Method m = c.getDeclaredMethod("testString", java.lang.String.class);
+	m.setAccessible(true);
+	m.invoke(c.newInstance(), "hello world teststring");
+    }
+
+    @Test
+    public void test07() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Method m = c.getDeclaredMethod("testString", new Class[] {java.lang.String.class, java.lang.
+	Integer.class});
+	//Method m = c.getDeclaredMethod("testString", java.lang.String.class);
+	m.setAccessible(true);
+	m.invoke(c.newInstance(), "hello world teststring", 1024);
+    }
+
+    @Test
+    public void test08() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Method m = c.getDeclaredMethod("testString", new Class[] {java.lang.String.class,
+	    java.lang.Integer.class});
+	m.setAccessible(true);
+	m.invoke(c.newInstance(), "hello world teststring", 39);
+    }
+
+    @Test
+    public void test09() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	Method m = c.getDeclaredMethod("testString", new Class[] {java.lang.String.class,
+	    java.lang.Double.class});
+	m.setAccessible(true);
+	m.invoke(c.newInstance(), "hello world teststring", 3.139);
+    }
+
+    @Test
+    public void test10() throws Exception{
+//	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+//	Method m = c.getDeclaredMethod("testString", new Class[] {java.lang.String.class,
+//	    java.lang.Float.class});
+//	m.setAccessible(true);
+//	m.invoke(c.newInstance(), "hello world teststring", 3.1);
+    }
+    
+    @Test
+    public void test11() throws Exception{
+	Class c = Class.forName("com.github.jvmgo.reflect.CustomerClassLoader");
+	String[] classes = new String[]{ "java.lang.String", "java.lang.Integer"};
+	Class[] args = new Class[classes.length];
+	for(int i=0;i<classes.length;i++){
+	    args[i] = Class.forName(classes[i]);
+	}
+	Method m = c.getDeclaredMethod("testString",args); 
+	m.setAccessible(true);
+	Object[] ar = new Object[2];
+	ar[0] = "hahah";
+	ar[1] = 3;
+	m.invoke(c.newInstance(), ar);
+    }
+
+    @Test
+    public void test12() throws Exception{
+	System.out.println(new Integer("11"));
+	System.out.println(new String("asdkjfa"));
+	System.out.println(new Double("3.14"));
+    } 
 }
