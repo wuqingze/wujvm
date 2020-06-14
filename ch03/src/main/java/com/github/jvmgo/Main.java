@@ -6,23 +6,33 @@ import com.github.jvmgo.classfile.constantpool.ConstantInfo;
 import com.github.jvmgo.classfile.constantpool.ConstantPool;
 import com.github.jvmgo.classpath.Classpath;
 import java.util.*;
+import java.util.stream.IntStream;
+
 public class Main {
 
 
     private ClassFile cf;
 
     public static void main(String[] argv) {
-        Args args = Args.parse(argv);
-        if (!args.ok || args.helpFlag) {
-            System.out.println("Usage: <main class> [-options] class [args...]");
-        } else if (args.versionFlag) {
-            System.out.println("java version \"1.8.0\"");
-        } else {
-	    System.out.println(Arrays.toString(argv));
-	    System.out.println(args.classpath);
-	    System.out.println(args.mainClassAndArgs);
-        //    startJVM(args);
-        }
+        //Args args = Args.parse(argv);
+        //if (!args.ok || args.helpFlag) {
+        //    System.out.println("Usage: <main class> [-options] class [args...]");
+        //} else if (args.versionFlag) {
+        //    System.out.println("java version \"1.8.0\"");
+        //} else {
+	    //System.out.println(Arrays.toString(argv));
+	    //System.out.println(args.classpath);
+	    //System.out.println(args.mainClassAndArgs);
+        ////    startJVM(args);
+        //}
+
+        //IntStream.range(0, 4).forEach(System.out::print);
+
+        System.out.println(Arrays.toString(
+        IntStream.range(0,10)
+                .mapToObj(i-> new String("hello world"))
+                .toArray(String[]::new)
+        ));
     }
 
     private static void startJVM(Args args) {

@@ -5,6 +5,9 @@ import com.github.jvmgo.classfile.attributes.AttributeInfo;
 import com.github.jvmgo.classfile.constantpool.ConstantPool;
 import lombok.Getter;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /*
 
 field_info {
@@ -37,14 +40,17 @@ public class MemberInfo {
     }
 
     public static MemberInfo[] readMembers(ConstantPool constantPool, ClassReader reader) {
-        int fieldCount = reader.nextU2ToInt();
-        MemberInfo[] fields = new MemberInfo[fieldCount];
+        //int fieldCount = reader.nextU2ToInt();
+        //MemberInfo[] fields = new MemberInfo[fieldCount];
 
-        for (int i = 0; i < fieldCount; i++) {
-            fields[i] = new MemberInfo(constantPool, reader);
-        }
+        //for (int i = 0; i < fieldCount; i++) {
+        //    fields[i] = new MemberInfo(constantPool, reader);
+        //}
 
-        return fields;
+        //return fields;
+        return IntStream.range(0, reader.nextU2ToInt())
+                .mapToObj((i)-> new MemberInfo(constantPool, reader))
+                .toArray(MemberInfo[]::new);
     }
 
 }
